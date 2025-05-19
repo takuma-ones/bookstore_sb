@@ -3,12 +3,29 @@ package jp.kwebs.bookstore.form;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class BookForm {
     private Long id;
-    private String title;
-    private LocalDate date;
-    private Integer price;
-    private List<String> mediaType;
+	@NotBlank(message="表題を記入してください")
+	@Size(max=20, message="20文字以内です")
+	private String title;
+	@NotNull(message="発行日を記入してください")
+	@Past(message="過去の日付を記入してください")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate date;
+	@NotNull(message="価格を記入してください")
+	@Positive(message="価格は正の値です")
+	private Integer	price;
+	@NotEmpty(message="１つ以上選択してください")
+	private List<String> mediaType;
 
     public BookForm() {
     }

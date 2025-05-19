@@ -20,18 +20,21 @@
                 <td>題　名：</td>
                 <td>
                     <input type="text" th:field="*{title}">
+                    <span th:errors="*{title}" class="msg"></span>
                 </td>
             </tr>
             <tr>
                 <td>発行日：</td>
                 <td>
                     <input type="date" th:field="*{date}">
+                    <span th:errors="*{date}" class="msg"></span>
                 </td>
             </tr>
             <tr>
                 <td>価　格：</td>
                 <td>
                     <input type="number" th:field="*{price}">
+                    <span th:errors="*{price}" class="msg"></span>
                 </td>
             </tr>
             <tr>
@@ -49,6 +52,7 @@
                         <input type="checkbox" th:field="*{mediaType}" value="オーディオブック">
                         オーディオブック
                     </label>
+                    <span th:errors="*{mediaType}" class="msg"></span>
                 </td>
             </tr>
         </table>
