@@ -54,9 +54,19 @@ public class BookService {
     }
 
     public void toEntity(Book book, BookForm bookForm) {
-		book.setTitle(bookForm.getTitle());
-		book.setDate(bookForm.getDate());
-		book.setPrice(bookForm.getPrice());
-		book.setMediaType(bookForm.getMediaType());
-	}
+        book.setTitle(bookForm.getTitle());
+        book.setDate(bookForm.getDate());
+        book.setPrice(bookForm.getPrice());
+        book.setMediaType(bookForm.getMediaType());
+    }
+
+    public BookForm toForm(Book book) {
+        BookForm bookForm = new BookForm();
+        bookForm.setId(book.getId());
+        bookForm.setTitle(book.getTitle());
+        bookForm.setDate(book.getDate());
+        bookForm.setPrice(book.getPrice());
+        bookForm.setMediaType(book.getMediaType());
+        return bookForm;
+    }
 }
